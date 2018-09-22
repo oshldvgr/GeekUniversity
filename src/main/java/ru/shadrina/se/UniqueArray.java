@@ -2,24 +2,22 @@ package ru.shadrina.se;
 
 import java.util.*;
 
-public class UniqueArray {
-    private String[] input;
+class UniqueArray {
     private HashSet<String> modifiedSet = new HashSet<>();
     private Map<String, Integer> frequency = new HashMap<>();
 
-    public UniqueArray(String[] input) {
-        this.input = input;
+    UniqueArray(String[] input) {
         for (String string : input) {
             int count = (modifiedSet.add(string)) ? 1 : frequency.get(string) + 1;
             frequency.put(string, count);
         }
     }
 
-    public String getModifiedArray() {
+    String getModifiedArray() {
         return (modifiedSet.toString());
     }
 
-    public String getFrequency() {
+    String getFrequency() {
         return (frequency.toString());
     }
 }
