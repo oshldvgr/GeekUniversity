@@ -11,7 +11,7 @@ public class App {
         String[] test = {"f", "r", "j", "a", "b", "g", "r", "r", "g", "d", "f", "a", "c"};
         UniqueArray a = new UniqueArray(test);
         System.out.println("Your array was modified " + a.getModifiedArray());
-        System.out.println("Frequency of string occurrence in your array " + a.getFrequency());
+        System.out.println("Frequency of string occurrence in your array " + a.getFrequency().toString());
     }
 
     private static void testTask2() {
@@ -22,8 +22,9 @@ public class App {
         test.addNumber("Bbb", "3243");
         test.addNumber("Aaa", "6534");
         test.addNumber("Ccc", "1234");
-        System.out.println(test.getNumber("Ccc"));
-        System.out.println(test.getNumber("Aaa"));
+        System.out.println("Phone number is " + test.getNumber("Ccc").toString());
+        System.out.println("Phone number is " + test.getNumber("Aaa").toString());
+
     }
 
 }

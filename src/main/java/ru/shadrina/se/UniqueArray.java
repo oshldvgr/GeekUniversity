@@ -3,7 +3,7 @@ package ru.shadrina.se;
 import java.util.*;
 
 class UniqueArray {
-    private HashSet<String> modifiedSet = new HashSet<>();
+    private Set<String> modifiedSet = new HashSet<>();
     private Map<String, Integer> frequency = new HashMap<>();
 
     UniqueArray(String[] input) {
@@ -14,10 +14,10 @@ class UniqueArray {
     }
 
     String getModifiedArray() {
-        return (modifiedSet.toString());
+        return modifiedSet.toString();
     }
 
-    String getFrequency() {
-        return (frequency.toString());
+    Set<Map.Entry<String,Integer>> getFrequency() {
+        return (frequency).entrySet();
     }
 }

@@ -1,10 +1,9 @@
 package ru.shadrina.se;
 
-import java.util.HashMap;
-import java.util.ArrayList;
+import java.util.*;
 
 class Phonebook {
-    private HashMap<String, ArrayList<String>> book = new HashMap<>();
+    private Map<String, ArrayList<String>> book = new HashMap<>();
 
     public String getPhonebook() {
         return book.toString();
@@ -20,7 +19,7 @@ class Phonebook {
         }
     }
 
-    String getNumber(String lastName) {
-        return ("Phone number of "+lastName+ " is " + book.get(lastName).toString());
+    ArrayList<String> getNumber(String lastName) {
+        return ( book.get(lastName));
     }
 }
