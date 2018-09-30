@@ -20,15 +20,15 @@ public class App {
     }
 
     private static long method2(float[] arr) {
-        final int h = arr.length / 2;
+        final int arrPartitionIndex = arr.length / 2;
         long startTime = System.currentTimeMillis();
-        float[] a1 = new float[h];
-        float[] a2 = new float[h];
-        System.arraycopy(arr, 0, a1, 0, h);
-        System.arraycopy(arr, h, a2, 0, h);
+        float[] arrPart1 = new float[arrPartitionIndex];
+        float[] arrPart2 = new float[arrPartitionIndex];
+        System.arraycopy(arr, 0, arrPart1, 0, arrPartitionIndex);
+        System.arraycopy(arr, arrPartitionIndex, arrPart2, 0, arrPartitionIndex);
 
-        Thread thread1 = new Thread(() -> transformation(a1, 0));
-        Thread thread2 = new Thread(() -> transformation(a2, h));
+        Thread thread1 = new Thread(() -> transformation(arrPart1, 0));
+        Thread thread2 = new Thread(() -> transformation(arrPart2, arrPartitionIndex));
         thread1.start();
         thread2.start();
         try {
@@ -38,8 +38,8 @@ public class App {
             e.printStackTrace();
         }
 
-        System.arraycopy(a1, 0, arr, 0, h);
-        System.arraycopy(a2, 0, arr, h, h);
+        System.arraycopy(arrPart1, 0, arr, 0, arrPartitionIndex);
+        System.arraycopy(arrPart2, 0, arr, arrPartitionIndex, arrPartitionIndex);
         long endTime = System.currentTimeMillis();
         return (endTime - startTime);
 
